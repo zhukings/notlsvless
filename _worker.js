@@ -30,7 +30,7 @@ let addressesnotls = [
 
 // 设置优选noTLS地址api接口
 let addressesnotlsapi = [
-	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt'，
+	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt',
 ];
 
 let DLS = 10;//速度下限
