@@ -22,10 +22,7 @@ let addressesapi = [
 
 // 设置优选地址，不带端口号默认80，noTLS订阅生成
 let addressesnotls = [
-	'www.visa.com.sg#官方优选域名',
-	'www.wto.org:8080#官方优选域名',
-	'www.who.int:8880#官方优选域名',
-	'alejandracaiccedo.com:80#CF优选',
+'alejandracaiccedo.com:80#CF优选',
 'api.ip.sb:80#CF优选',
 'c.xf.free.hr:2087:80#CF优选',
 'cdn.anycast.eu.org:80#CF优选',
