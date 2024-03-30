@@ -26,14 +26,14 @@ let addressesnotls = [
 //	'www.wto.org:8080#官方优选域名',
 //	'www.who.int:8880#官方优选域名',
 	'alejandracaiccedo.com:80#CF优选',
-'api.ip.sb:80#CF优选',
-'c.xf.free.hr:2087:80#CF优选',
-'cdn.anycast.eu.org:80#CF优选',
-'cdn.cf.clun.top:80#CF优选',
-'cdn.kaiche.tk:2096:80#CF优选',
-'cdn-all.xn--b6gac.eu.org:80#CF优选',
-'cdn-b100.xn--b6gac.eu.org:80#CF优选',
-'cf.090227.xyz:2087:80#CF优选',
+'api.ip.sb:80#CF优选'，
+'c.xf.free.hr:2087:80#CF优选'，
+'cdn.anycast.eu.org:80#CF优选'，
+'cdn.cf.clun.top:80#CF优选'，
+'cdn.kaiche.tk:2096:80#CF优选'，
+'cdn-all.xn--b6gac.eu.org:80#CF优选'，
+'cdn-b100.xn--b6gac.eu.org:80#CF优选'，
+'cf.090227.xyz:2087:80#CF优选'，
 'cfip.xxxxxxxx.tk:8443:80#CF优选',
 'cloudflare.cfgo.cc:2053:80#CF优选',
 'edgetunnel.anycast.eu.org:80#CF优选',
@@ -99,7 +99,7 @@ let addressesnotls = [
 
 // 设置优选noTLS地址api接口
 let addressesnotlsapi = [
-	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt',
+//	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt',
 ];
 
 let DLS = 10;//速度下限
