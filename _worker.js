@@ -1,7 +1,7 @@
 
 // 部署完成后在网址后面加上这个，获取订阅器默认节点，/auto
 
-let mytoken= 'auto';//快速订阅访问入口, 留空则不启动快速订阅
+let mytoken= ['auto', 'auto2'];//快速订阅访问入口, 留空则不启动快速订阅
 
 // 设置优选地址，不带端口号默认443，TLS订阅生成
 let addresses = [
@@ -11,12 +11,13 @@ let addresses = [
 
 // 设置优选地址api接口
 let addressesapi = [
-//	'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt', //可参考内容格式 自行搭建。
+	'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt', //可参考内容格式 自行搭建。
+	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesipv6api.txt', //IPv6优选内容格式 自行搭建。
 ];
 
 // 设置优选地址，不带端口号默认80，noTLS订阅生成
 let addressesnotls = [
-	//'www.visa.com.sg#官方优选域名',
+		//'www.visa.com.sg#官方优选域名',
 	//'www.wto.org:8080#官方优选域名',
 //	'www.who.int:8880#官方优选域名',
 	'time.cloudflare.com:80#官方优选域名',
@@ -75,16 +76,9 @@ let addressesnotlsapi = [
 	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt',
 ];
 
-let DLS = 10;//速度下限
+let DLS = 7;//速度下限
 let addressescsv = [
-//	'https://raw.githubusercontent.com/zhukings/vless2sub/main/addressescsv.csv' //iptest测速结果文件。
-//	'https://raw.githubusercontent.com/zhukings/cf-rule/main/Test_Oracle.csv',
-//	'https://raw.githubusercontent.com/zhukings/cf-rule/main/Test_aliyun.csv',
-	'https://raw.githubusercontent.com/zhukings/cf-rule/main/addressescsv.csv',
-
-//	'https://raw.githubusercontent.com/zhukings/cf-rule/main/31898-1709485549.csv',
-//	'https://raw.githubusercontent.com/zhukings/cf-rule/main/396982-1709487927.csv',
-//	'https://raw.githubusercontent.com/zhukings/cf-rule/main/45102-1709485217.csv',
+	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv', //iptest测速结果文件。
 ];
 
 let subconverter = "apiurl.v1.mk"; //在线订阅转换后端，目前使用肥羊的订阅转换功能。支持自建psub 可自行搭建https://github.com/bulianglin/psub
@@ -242,7 +236,7 @@ async function getAddressescsv(tls) {
 let protocol;
 export default {
 	async fetch (request, env) {
-		mytoken = env.TOKEN || mytoken;
+		mytoken = env.TOKEN.split(',') || mytoken;
 		BotToken = env.TGTOKEN || BotToken;
 		ChatID = env.TGID || ChatID; 
 		subconverter = env.SUBAPI || subconverter;
@@ -258,7 +252,7 @@ export default {
 		total = total * 1099511627776 * 1024;
 		let expire= Math.floor(timestamp / 1000) ;
 
-		if (mytoken !== '' && url.pathname.includes(mytoken)) {
+		if (mytoken.length > 0 && mytoken.some(token => url.pathname.includes(token))) {
 			host = env.HOST || "edgetunnel-2z2.pages.dev";
 			uuid = env.UUID || "b7a392e2-4ef0-4496-90bc-1c37bb234904";
 			path = env.PATH || "/?ed=2048";
